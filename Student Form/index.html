@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Admission Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        input, select, textarea {
+            display: block;
+            width: 300px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Student Registration, Admission & Scholarship Form</h2>
+
+<form id="form">
+
+<!-- PAGE 1 -->
+<div class="page active">
+
+    <fieldset>
+        <legend>Personal Information</legend>
+
+        <label>Full Name:</label>
+        <input type="text" required minlength="3" maxlength="50"
+               placeholder="Enter full name">
+
+        <label>Father's/Mother's Name:</label>
+        <input type="text" required minlength="3" maxlength="50"
+               placeholder="Enter parent's name">
+
+        <label>Email:</label>
+        <input type="email" required placeholder="example@gmail.com">
+
+        <label>Mobile:</label>
+        <input type="tel" required pattern="[0-9]{10}"
+               placeholder="10 digit mobile number">
+
+        <label>Date of Birth:</label>
+        <input type="date" id="dob" required>
+
+        <label>Gender:</label>
+
+        <input type="radio" name="gender" required> Male
+        <input type="radio" name="gender"> Female
+        <input type="radio" name="gender"> Other
+
+        <br><br>
+
+        <label>Password:</label>
+        <input type="password" required minlength="8" maxlength="20"
+               placeholder="8 to 20 characters">
+
+        <label>Photograph:</label>
+        <input type="file" required accept=".jpg,.jpeg,.png">
+
+    </fieldset>
+
+
+    <fieldset>
+        <legend>Address</legend>
+
+        <label>Complete Address:</label>
+        <textarea required minlength="20" maxlength="200"
+                  placeholder="Enter complete address"></textarea>
+
+        <label>City:</label>
+        <input type="text" required minlength="2" maxlength="30">
+
+        <label>State:</label>
+        <select required>
+            <option value="">Select State</option>
+            <option>Uttarakhand</option>
+            <option>Delhi</option>
+            <option>Other</option>
+        </select>
+
+        <label>Country:</label>
+        <select required>
+            <option value="">Select Country</option>
+            <option>India</option>
+            <option>USA</option>
+            <option>Other</option>
+        </select>
+
+        <label>PIN Code:</label>
+        <input type="text" required pattern="[0-9]{6}"
+               placeholder="6 digit PIN">
+
+    </fieldset>
+
+    <button type="button" onclick="next()">Next</button>
+</div>
+
+
+<!-- PAGE 2 -->
+<div class="page">
+
+    <fieldset>
+        <legend>Academic Details</legend>
+
+        <label>10th Percentage:</label>
+        <input type="number" required min="0" max="100">
+
+        <label>12th Percentage:</label>
+        <input type="number" required min="0" max="100">
+
+        <label>Graduation Percentage:</label>
+        <input type="number" min="0" max="100">
+
+        <label>Passing Year:</label>
+        <input type="text" required pattern="[0-9]{4}"
+               placeholder="YYYY">
+
+        <label>Highest Qualification:</label>
+        <select required>
+            <option value="">Select</option>
+            <option>12th</option>
+            <option>Graduation</option>
+            <option>Post Graduation</option>
+        </select>
+
+        <label>Entrance Exam:</label>
+        <select required>
+            <option value="">Select</option>
+            <option>JEE</option>
+            <option>CUET</option>
+            <option>GATE</option>
+            <option>Other</option>
+        </select>
+
+        <label>Entrance Score:</label>
+        <input type="number" required min="0" max="200">
+
+    </fieldset>
+
+
+    <fieldset>
+        <legend>Course Details</legend>
+
+        <label>Course:</label>
+        <select required>
+            <option value="">Select Course</option>
+            <option>B.Tech</option>
+            <option>BCA</option>
+            <option>M.Tech</option>
+        </select>
+
+        <label>Specialization:</label>
+        <select required>
+            <option value="">Select Specialization</option>
+            <option>Computer Science</option>
+            <option>AI</option>
+            <option>Data Science</option>
+        </select>
+
+        <label>Admission Type:</label>
+
+        <input type="radio" name="admission" required> Regular
+        <input type="radio" name="admission"> Lateral Entry
+        <input type="radio" name="admission"> Management
+
+    </fieldset>
+
+    <button type="button" onclick="back()">Back</button>
+    <button type="button" onclick="next()">Next</button>
+
+</div>
+
+
+<!-- PAGE 3 -->
+<div class="page">
+
+    <fieldset>
+        <legend>Technical Skills</legend>
+
+        <p>Select at least one skill:</p>
+
+        <input type="checkbox" name="skill"> HTML
+        <input type="checkbox" name="skill"> CSS
+        <input type="checkbox" name="skill"> JavaScript
+        <input type="checkbox" name="skill"> Java
+        <input type="checkbox" name="skill"> Python
+        <input type="checkbox" name="skill"> C++
+        <input type="checkbox" name="skill"> SQL
+        <input type="checkbox" name="skill"> React
+        <input type="checkbox" name="skill"> Angular
+        <input type="checkbox" name="skill"> Node.js
+
+        <br><br>
+
+        <label>Other Skills:</label>
+        <input type="text" minlength="2" maxlength="50"
+               placeholder="Optional">
+
+    </fieldset>
+
+
+    <fieldset>
+        <legend>Scholarship</legend>
+
+        <label>Scholarship Category:</label>
+
+        <input type="radio" name="scholarship" value="Merit" required>
+        Merit
+
+        <input type="radio" name="scholarship" value="Sports">
+        Sports
+
+        <input type="radio" name="scholarship" value="Research">
+        Research
+
+        <input type="radio" name="scholarship" value="Financial">
+        Financial Assistance
+
+        <input type="radio" name="scholarship" value="None">
+        No Scholarship
+
+        <br><br>
+
+        <label>Amount:</label>
+        <input type="number" id="amount" min="1000" max="200000">
+
+        <label>Justification:</label>
+        <textarea id="justification"
+                  minlength="50"
+                  maxlength="300"
+                  placeholder="Explain why you need scholarship"></textarea>
+
+    </fieldset>
+
+    <button type="button" onclick="back()">Back</button>
+    <button type="button" onclick="next()">Next</button>
+
+</div>
+
+
+<!-- PAGE 4 -->
+<div class="page">
+
+    <fieldset>
+        <legend>Research Details</legend>
+
+        <label>Research Area:</label>
+        <input type="text">
+
+        <label>Research Title:</label>
+        <input type="text">
+
+        <label>Research Proposal:</label>
+        <textarea id="proposal"
+                  minlength="100"
+                  maxlength="1000"
+                  placeholder="100 to 1000 characters"></textarea>
+
+    </fieldset>
+
+
+    <fieldset>
+        <legend>Documents</legend>
+
+        <label>Photograph:</label>
+        <input type="file" required
+               accept=".pdf,.jpg,.jpeg,.png">
+
+        <label>10th Marksheet:</label>
+        <input type="file" required
+               accept=".pdf,.jpg,.jpeg,.png">
+
+        <label>12th Marksheet:</label>
+        <input type="file" required
+               accept=".pdf,.jpg,.jpeg,.png">
+
+        <label>ID Proof:</label>
+        <input type="file" required
+               accept=".pdf,.jpg,.jpeg,.png">
+
+        <label>Other Certificate:</label>
+        <input type="file"
+               accept=".pdf,.jpg,.jpeg,.png">
+
+    </fieldset>
+
+    <button type="button" onclick="back()">Back</button>
+    <button type="button" onclick="next()">Next</button>
+
+</div>
+
+
+<!-- PAGE 5 -->
+<div class="page">
+
+    <fieldset>
+        <legend>Personal Statement</legend>
+
+        <textarea required minlength="100" maxlength="500"
+                  placeholder="Write about your goals, achievements and why you want admission"></textarea>
+
+    </fieldset>
+
+
+    <fieldset>
+        <legend>Declaration</legend>
+
+        <input type="checkbox" required>
+        I confirm that all information is correct.
+
+        <br><br>
+
+        <input type="checkbox" required>
+        I accept the terms and conditions.
+
+        <br><br>
+
+        <input type="checkbox" required>
+        I allow verification of my information.
+
+    </fieldset>
+
+    <button type="button" onclick="back()">Back</button>
+
+    <button type="submit">Submit</button>
+
+    <button type="reset">Reset</button>
+
+</div>
+
+</form>
+
+
+<script>
+
+let page = 0;
+
+let pages = document.querySelectorAll(".page");
+
+
+function next() {
+
+    let inputs = pages[page].querySelectorAll(
+        "input, select, textarea"
+    );
+
+    for (let input of inputs) {
+
+        if (!input.checkValidity()) {
+            input.reportValidity();
+            return;
+        }
+    }
+
+
+    // Check age
+    if (page == 0) {
+
+        let dob = document.getElementById("dob").value;
+
+        let birth = new Date(dob);
+        let today = new Date();
+
+        let age = today.getFullYear() - birth.getFullYear();
+
+        if (age < 17) {
+            alert("Age must be at least 17 years");
+            return;
+        }
+    }
+
+
+    // Check skills
+    if (page == 2) {
+
+        let skills =
+            document.querySelectorAll(
+                'input[name="skill"]:checked'
+            );
+
+        if (skills.length == 0) {
+            alert("Select at least one skill");
+            return;
+        }
+    }
+
+
+    // Scholarship validation
+    if (page == 2) {
+
+        let scholarship =
+            document.querySelector(
+                'input[name="scholarship"]:checked'
+            );
+
+        if (scholarship &&
+            scholarship.value != "None") {
+
+            let amount =
+                document.getElementById("amount");
+
+            let justification =
+                document.getElementById("justification");
+
+            if (!amount.value ||
+                !justification.value) {
+
+                alert(
+                    "Enter scholarship amount and justification"
+                );
+
+                return;
+            }
+        }
+    }
+
+
+    pages[page].classList.remove("active");
+
+    page++;
+
+    pages[page].classList.add("active");
+}
+
+
+function back() {
+
+    pages[page].classList.remove("active");
+
+    page--;
+
+    pages[page].classList.add("active");
+}
+
+
+document.getElementById("form").addEventListener(
+    "submit",
+    function(event) {
+
+        let scholarship =
+            document.querySelector(
+                'input[name="scholarship"]:checked'
+            );
+
+        let proposal =
+            document.getElementById("proposal");
+
+
+        // Research proposal required only for Research scholarship
+        if (
+            scholarship &&
+            scholarship.value == "Research"
+        ) {
+
+            if (
+                proposal.value.length < 100 ||
+                proposal.value.length > 1000
+            ) {
+
+                event.preventDefault();
+
+                alert(
+                    "Research proposal must be 100 to 1000 characters"
+                );
+
+                return;
+            }
+        }
+
+        event.preventDefault();
+
+        alert("Form submitted successfully!");
+
+    }
+);
+
+</script>
+
+</body>
+</html>
