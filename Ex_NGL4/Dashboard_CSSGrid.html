@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Dashboard</title>
+
+    <style>
+        .dashboard {
+            display: grid;
+
+            grid-template-columns: 200px 1fr;
+
+            grid-template-rows: 70px 1fr 50px;
+
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+
+            height: 100vh;
+        }
+
+        header {
+            grid-area: header;
+            background-color: blue;
+            color: white;
+            padding: 20px;
+            font-size: 25px;
+        }
+
+        aside {
+            grid-area: sidebar;
+            background-color: lightgray;
+            padding: 20px;
+        }
+
+        main {
+            grid-area: main;
+            padding: 30px;
+        }
+
+        footer {
+            grid-area: footer;
+            background-color: darkgray;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <header>College Dashboard</header>
+
+        <aside>
+            <h3>Menu</h3>
+            <p>Dashboard</p>
+            <p>Courses</p>
+            <p>Results</p>
+        </aside>
+
+        <main>
+            <h2>Welcome Student</h2>
+            <p>View your courses and academic information.</p>
+        </main>
+
+        <footer>© 2026 College Portal</footer>
+
+    </div>
+
+</body>
+</html>
